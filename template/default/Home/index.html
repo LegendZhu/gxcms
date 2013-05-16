@@ -6,10 +6,11 @@
     <meta name="description" content="{$description}">
     <title>{$webtitle}</title>
     <include file="system" />
-    <link rel='stylesheet' type='text/css' href='{$tplpath}example.css'>
+    <!-- <link rel='stylesheet' type='text/css' href='{$tplpath}example.css'> -->
     <link rel='stylesheet' type='text/css' href='{$tplpath}template.css'>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link rel='stylesheet' type='text/css' href='{$tplpath}font-awesome.min.css'>
+    <link rel='stylesheet' type='text/css' href='{$tplpath}slides.css'>
     <script src="{$tplpath}jquery.slides.min.js"></script>
     <link rel="shortcut icon" href="{$webpath}favicon.ico" />
     <meta name="baidu-site-verification" content="tHYxpudZGOm2BnfO" />
@@ -474,6 +475,23 @@
 <script>
   $(function() {
     $('#slides').slidesjs({
+      play: {
+        active: false,
+          // [boolean] Generate the play and stop buttons.
+          // You cannot use your own buttons. Sorry.
+        effect: "fade",
+          // [string] Can be either "slide" or "fade".
+        interval: 3000,
+          // [number] Time spent on each slide in milliseconds.
+        auto: true,
+          // [boolean] Start playing the slideshow on load.
+        swap: true,
+          // [boolean] show/hide stop and play buttons
+        pauseOnHover: true,
+          // [boolean] pause a playing slideshow on hover
+        restartDelay: 4000
+          // [number] restart delay on inactive slideshow
+      },
       width : 940,
       height : 528,
       navigation : false
