@@ -1,0 +1,12 @@
+*.class
+*.pyc
+*.pyo
+temp/*
+.htaccess
+.settings
+.settings/*
+.project
+install.php
+*.txt
+rewrite/
+uploads/
