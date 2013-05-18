@@ -52,10 +52,10 @@ a:hover{text-decoration:underline;}
 .pages em,.pages span,.pages a{font-style:normal;margin:0 2px;padding:2px 3px;color:#000000;border:1px solid #ccc;}
 .pages span{color:#000033;background:#ccc;}
 
-/* Header */	
+/* Header */
 .header{padding:10px 0 0;}
 .header .top{height:60px;}
-.logo{float:left;width:192px;height:66px;margin:0 0 0 2px;background: url("images/logo.gif") no-repeat 0 -8px;}
+.logo{float:left;width:192px;height:66px;margin:0 0 0 2px;background: url("images/logo.png") no-repeat 0 -8px;}
 .login{float:right;margin:0 2px;color:#aeaeae;}
 .login a{color:#aeaeae;}
 .login a.orange{color:#0082cb;}
