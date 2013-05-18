@@ -2,7 +2,7 @@
 *.pyc
 *.pyo
 temp/*
-.htaccess
+.htaccess*
 .settings
 .settings/*
 .project
@@ -10,3 +10,4 @@ install.php
 *.txt
 rewrite/
 uploads/
+Thumbs.db
