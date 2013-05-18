@@ -13,11 +13,11 @@ $(document).ready(function(){
 	//收藏本站
 	$("#fav").click(function(){
 		AddFav();
-	});					   
+	});
 	//用户信息初始化
-	if($("#Login").length>0){
-		LoginShow();
-	}
+	// if($("#Login").length>0){
+		// LoginShow();
+	// }
 	//积分初始化
 	if($("#Score").length>0 || $("#Scorenum").length>0){
 		//静态模式下需要从数据库初始积分(通过检测.Score来完成)
@@ -63,7 +63,7 @@ function LoginShow(){
 		type: 'get',
 		url: SitePath+"index.php?s=login",
 		timeout: 3000,
-		success:function($string){	
+		success:function($string){
 			if($string != 'false'){
 				$("#Login").html($string);
 			}
@@ -84,7 +84,7 @@ function UpdownShow($ajaxurl,$ajaxtype){
 				alert('您已投过票了，感谢您的参与！');
 			}
 		}
-	});	
+	});
 }
 function CommentShow($ajaxurl){
 	/*$("#Comments").ajaxStart(function(){
@@ -97,7 +97,7 @@ function CommentShow($ajaxurl){
 		error: function(){
 			$("#Comments").html('评论加载失败');
 		},
-		success:function($html){	
+		success:function($html){
 			$("#Comments").html($html);
 		}
 	});
@@ -128,7 +128,7 @@ function PlusScore($html,$status){
 		$("#Scoretitle").html('评分成功！');
 		$("#Scoretitle").show();
 		$status = '';
-	}	
+	}
 	//展示星级>评分>评分人
 	$("#Score").html(ScoreShow($html.split(':')[0]));
 	$("#Scorenum").html($html.split(':')[0]);
@@ -150,7 +150,7 @@ function PlusScore($html,$status){
 	});
 	//鼠标移出
 	$("#Score>span").mouseout(function(){
-		//去除title提示						   
+		//去除title提示
 		$("#Scoretitle").hide();
 		//刷新星级图标
 		$score = $html.split(':')[0]*1/2;
@@ -182,7 +182,7 @@ function PlusScore($html,$status){
 				}
 			}
 		});
-	});	
+	});
 }
 //星级评分展示
 function ScoreShow($score){
@@ -228,5 +228,5 @@ function AddFav(){
 		}catch(err){
 			alert("加入收藏失败，请使用Ctrl+D进行添加");
 		}
-	}	
+	}
 }

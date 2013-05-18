@@ -4,21 +4,21 @@ $(document).ready(function(){
 	//展示地区列表
 	if($("#areahtml").length>0){
 		showarea();
-	}	
+	}
 	//展示年份列表
 	if($("#yearhtml").length>0){
 		showyear();
 	}
 	//内容页同类热门影视
 	if($("#hot_video").length>0){
-		$("#hot_video").load($("#hot_video").attr('href'));	
+		$("#hot_video").load($("#hot_video").attr('href'));
 	}
 	//内容页同类热门新闻
 	if($("#hot_info").length>0){
-		$("#hot_info").load($("#hot_info").attr('href'));	
+		$("#hot_info").load($("#hot_info").attr('href'));
 	}
 	//收起展开列表 <span id="detail_hot"></span>
-	$("#plMore").click(function(){	
+	$("#plMore").click(function(){
 		$html = $(this).html();
 		if($html=='展开列表'){
 			$(this).html('收起列表');
@@ -26,22 +26,22 @@ $(document).ready(function(){
 			$("#all-plist").show();
 		}else{
 			$(this).html('展开列表');
-			$("#pmoreContain").attr('class','play-list-right');	
+			$("#pmoreContain").attr('class','play-list-right');
 			$("#all-plist").hide();
 		}
-	});	
+	});
 });
 function showsearch(){
 	$('#wd').focus(function(){
-	if($('#wd').val()=='请输入关键字'){
+	if($('#wd').val()=='点我搜好看的电影哦！'){
 			$('#wd').val('');
 		}
 	});
 	$('#wd').blur(function(){
 		if($('#wd').val()==''){
-			$('#wd').val('请输入关键字');
+			$('#wd').val('点我搜好看的电影哦！');
 		}
-	});	
+	});
 	$('#sort').hide();
 	$('#cur_txt').click(function(){
 		$('#sort').show();
@@ -50,7 +50,7 @@ function showsearch(){
 			$action = $('#search').attr('action');
 			if($html=='新闻'){
 				$('#cur_txt').html('新闻');
-				$('#search').attr('action',$action.replace('video/','info/'));	
+				$('#search').attr('action',$action.replace('video/','info/'));
 			}else{
 				$('#cur_txt').html('视频');
 				$('#search').attr('action',$action.replace('info/','video/'));
@@ -58,7 +58,7 @@ function showsearch(){
 			$('#sort').hide();
 		});
 	});
-	$('#cur_txt').blur(function(){	
+	$('#cur_txt').blur(function(){
 		$('#sort').hide();
 	});
 }
