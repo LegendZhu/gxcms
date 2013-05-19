@@ -19,8 +19,8 @@
     <div class="topbrd"></div>
     <div class="bd"><div class="ct">
         <div class="hd"><h3>热门视频排行</h3><a href="{$topurl}" class="more">更多&gt;&gt;</a></div>
-        <ul class="top"><gxcms name="video" limit="20" order="hits desc"> 
-        <li <egt name="i" value="4">class="b <if condition="$i eq 10">nobrd</if>"</egt>> 
+        <ul class="top"><gxcms name="video" limit="20" order="hits desc">
+        <li <egt name="i" value="4">class="b <if condition="$i eq 10">nobrd</if>"</egt>>
         	<em>{$i}</em><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,15}</a> <span>{$video.addtime|get_color_date='m-d',###}</span>
         </li>
         </gxcms></ul>
@@ -33,8 +33,8 @@
         <gt name="count" value="0">
       	<div class="video_search_total">共找到<span class="kw">{$count}</span>条与<span class="kw">"{$keyword}"</span> 的相关结果</div>
         <ul class="mov_list">
-          <gxsearch name="video" limit="10" order="'.$order.'"><li> 
-            <a href="{$video.readurl}"><img src="{$video.picurl}" width="119" height="170" border="0" onerror="this.src='{$webpath}views/images/nophoto.jpg'"/></a>
+          <gxsearch name="video" limit="10" order="'.$order.'"><li>
+            <a href="{$video.readurl}"><img src="{$video.picurl}" alt="{$video.title}" width="119" height="170" border="0" onerror="this.src='{$webpath}views/images/nophoto.jpg'"/></a>
               <a href="{$video.readurl}" class="title" title="{$video.title}">{$video['title']|get_replace_html=0,10|get_hilight=$keyword}</a>
               <p>导演：{$video['director']|default='未知'|get_hilight=$keyword} <br>主演：主演：{$video.actor|get_replace_html=0,6|get_actor_url}<br>地区：{$video.area}   年份：{$video.year|default='未录入'}<br>评分：<span class="score">{$video.score}</span> </p>
               <p>剧集介绍：{$video.content|get_replace_html=0,35,'utf-8',true|get_hilight=$keyword}</p>

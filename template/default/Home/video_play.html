@@ -23,7 +23,7 @@ $(document).ready(function(){
     <div title="{$webname}" class="play_logo"></div>
     <div class="play_nav">
       <a href="{$webpath}">首页</a>
-      <gxcms name="menu"><a onfocus="this.blur();" href="{$menu.showurl}" <if condition="($menu['id'] eq $cid) or ($menu['id'] eq $pid)">class="cur"</if>>{$menu.cname}</a></gxcms><span>|</span> 
+      <gxcms name="menu"><a onfocus="this.blur();" href="{$menu.showurl}" <if condition="($menu['id'] eq $cid) or ($menu['id'] eq $pid)">class="cur"</if>>{$menu.cname}</a></gxcms><span>|</span>
       <a href="{$topurl}"<if condition="check_model('top10') eq 1">class="cur"</if>>排行</a>
       <a href="{b$specialurl}" <if condition="check_model('special') eq 1">class="cur"</if>>专题</a>
     </div>
@@ -93,7 +93,7 @@ $(document).ready(function(){
               <include file="system_score" />
         </div>
         <div class="info">
-          <a href="{$readurl}"><img src="{$picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="98" height="140" /></a> 
+          <a href="{$readurl}"><img src="{$picurl}" alt="{$video.title}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="98" height="140" /></a>
           <span class="mv-title" title="{$title}"> <a href="{$readurl}" title="{$title}{$playname}">{$title|get_replace_html=0,7}</a></span>
           <p>主演：<notempty name="actor">{$actor|get_replace_html=0,7|get_actor_url}<else />未知</notempty></p>
           <p>导演：<notempty name="director">{$director|get_replace_html=0,7|get_actor_url}<else />未知</notempty></p>

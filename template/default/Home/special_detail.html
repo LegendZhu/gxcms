@@ -37,7 +37,7 @@
           <div class="special_box bd">
             <span class="tl"></span><span class="tr"></span>
             <div class="special_read ct">
-              <div class="special_pic"><img src="{$logo}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="237" height="142" />
+              <div class="special_pic"><img src="{$logo}" alt="{$title}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="237" height="142" />
               </div>
               <h1>{$title|get_replace_html=0,30}</h1>
               <div class="time">
@@ -61,7 +61,7 @@
                   <gxcms name="video" ids="'.$mids.'" limit="25">
                     <li>
                       <div class="pic">
-                        <a href="{$video.readurl}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="98" height="140" border="0"/></a>
+                        <a href="{$video.readurl}" target="_blank"><img src="{$video.picurl}" alt="{$video.title}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="98" height="140" border="0"/></a>
                       </div>
                       <div class="mid_title">
                         <a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,7}</a>
