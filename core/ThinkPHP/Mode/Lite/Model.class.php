@@ -412,7 +412,7 @@ class Model extends Think
         // 赋值当前数据对象
         $this->data =   $vo;
         // 返回创建的数据以供其他调用
-        return $vo;
+        var_dump( $vo);
      }
 
     /**

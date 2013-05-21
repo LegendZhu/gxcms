@@ -16,6 +16,7 @@
       </div>
       <div class="box">
         <div class="left_col">
+          <!--热门电影排行 开始-->
           <div class="topbrd"></div>
           <div class="bd">
             <div class="ct">
@@ -37,6 +38,42 @@
           <div class="special_box bd">
             <span class="tl"></span><span class="tr"></span>
             <div class="ct">
+              <div class="ct">
+                <div class="hd">
+                  <h3>影片检索：</h3>
+                </div>
+                <div class="mov_index">
+                  <if condition="(get_channel_son($cid) eq 0) or ($pid gt 0)">
+                    <dl>
+                      <dt>
+                        按类型
+                      </dt>
+                      <dd>
+                        <a href="/gxcms/?s=special/lists/cid/8.html" >动作片</a>
+                        <a href="/gxcms/?s=special/lists/cid/9.html" >喜剧片</a>
+                        <a href="/gxcms/?s=special/lists/cid/10.html" >爱情片</a>
+                        <a href="/gxcms/?s=special/lists/cid/11.html" >科幻片</a>
+                        <a href="/gxcms/?s=special/lists/cid/12.html" >剧情片</a>
+                        <a href="/gxcms/?s=special/lists/cid/13.html" >恐怖片</a>
+                        <a href="/gxcms/?s=special/lists/cid/14.html" >战争片</a>
+                        <!-- <gt name="pid" value="0">
+                        <gxcms name="menu" ids="'.$pid.'">
+                        <gxfor name="menu.son" id="menuson">
+                        <a href="{$menuson.showurl}" <eq name="cid" value="$menuson.id">class="Class"</eq>>{$menuson.cname}</a>
+                        </gxfor>
+                        </gxcms>
+                        <else />
+                        <gxcms name="menu" ids="'.$cid.'">
+                        <gxfor name="menu.son" id="menuson">
+                        <a href="{$menuson.showurl}" <eq name="cid" value="$menuson.id">class="Class"</eq>>{$menuson.cname}</a>
+                        </gxfor>
+                        </gxcms>
+                        </gt> -->
+                      </dd>
+                    </dl>
+                  </if>
+                </div>
+              </div>
               <div class="hd">
                 <h3>全部专题列表<span>(共{$count}个)</span></h3>
               </div>

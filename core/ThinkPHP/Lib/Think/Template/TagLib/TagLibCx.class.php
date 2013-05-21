@@ -24,24 +24,24 @@ import('TagLib');
  +------------------------------------------------------------------------------
  */
 class TagLibCx extends TagLib
-{//类定义开始	
-	
+{//类定义开始
+
     public function _gxcms($attr,$content) {
         return $this->_gxcmsfor($attr,$content,'gxcms');
-    }	
+    }
 
     public function _gxlist($attr,$content) {
         return $this->_gxcmsfor($attr,$content,'gxlist');
     }
-	
+
     public function _gxsearch($attr,$content) {
         return $this->_gxcmsfor($attr,$content,'gxsearch');
     }
-		
+
     public function _gxfor($attr,$content) {
         return $this->_volist($attr,$content);
-    }	
-	
+    }
+
 	public function _gxcmsfor($attr,$content,$gxtag = 'gxcms') {
 		$tag = $this->parseXmlAttr($attr);
 		$table = !empty($tag['name'])?trim($tag['name']):'video';
@@ -64,7 +64,7 @@ class TagLibCx extends TagLib
         $parseStr .= '$mod = ($'.$key.' % '.$mod.' );';
 		$parseStr .= '?>';
         $parseStr .= $this->tpl->parse($content);
-        $parseStr .= '<?php endforeach; endif; else: echo "'.$empty.'" ;endif;unset($__LIST__);unset($tag);?>';		
+        $parseStr .= '<?php endforeach; endif; else: echo "'.$empty.'" ;endif;unset($__LIST__);unset($tag);?>';
 		return $parseStr;
 	}
 
