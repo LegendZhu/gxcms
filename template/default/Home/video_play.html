@@ -93,7 +93,7 @@ $(document).ready(function(){
               <include file="system_score" />
         </div>
         <div class="info">
-          <a href="{$readurl}"><img src="{$picurl}" alt="{$video.title}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="98" height="140" /></a>
+          <a href="{$readurl}"><img src="{$picurl}" alt="{$video.title}" title="{$video.title}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="98" height="140" /></a>
           <span class="mv-title" title="{$title}"> <a href="{$readurl}" title="{$title}{$playname}">{$title|get_replace_html=0,7}</a></span>
           <p>主演：<notempty name="actor">{$actor|get_replace_html=0,7|get_actor_url}<else />未知</notempty></p>
           <p>导演：<notempty name="director">{$director|get_replace_html=0,7|get_actor_url}<else />未知</notempty></p>
