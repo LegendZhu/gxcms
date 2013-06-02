@@ -1,0 +1,58 @@
+<script language="JavaScript" type="text/javascript" src="{$tplpath}template.js"></script>
+<div class="header">
+  <div class="nav">
+    <a href="{$webpath}" <if condition="$model eq 'index'">class="cur"</if>>首页</a>
+    <gxcms name="menu">
+      <a onfocus="this.blur();" href="{$menu.showurl}" <if condition="($menu['id'] eq $cid) or ($menu['id'] eq $pid)">class="cur"</if>>{$menu.cname}</a>
+    </gxcms><span>|</span>
+    <a href="{$topurl}" <if condition="check_model('top10') eq 1">class="cur"</if>>排行</a>
+    <a href="{$specialurl}" <if condition="check_model('special') eq 1">class="cur"</if>>专题</a>
+    <div class="control">
+      <a href="javascript:void(0)" id="fav">收藏本站</a>| <a href="{$guestbookurl}">留言反馈</a>| <a href="{$rssurl}">RSS订阅</a>| <span class="his" id="ggg" onmouseover="fnDisplayMenu(this,'mnuArtStyles');" onmouseout="fnHideMenu('mnuArtStyles'); fnRemoveHighlight('mnuArtStyles');" > <a class="headerMnuLink" id="mnuArtStylesLink" href="javascript:void(0);">播放记录</a> </span>
+    </div>
+    <div class="popup1" id="mnuArtStyles"  style="display:none" onmouseover="fnDisplayMenu2($('#mnuArtStylesLink'),'mnuArtStyles');" onmouseout="fnHideMenu('mnuArtStyles'); fnRemoveHighlight('mnuArtStyles');" >
+      <div id="history"></div>
+    </div>
+  </div>
+</div>
+<div id="wrapper">
+  <div class="sub">
+    <gxcms name="menu" ids="0">
+      <gxfor name="menu.son" id="menuson">
+        <a href="{$menuson.showurl}" >{$menuson.cname}</a>&nbsp;&nbsp;
+      </gxfor>
+    </gxcms>
+  <!-- <gxcms name="menu" ids="'.$pid.'">
+    <gxfor name="menu.son" id="menuson">
+      <a href="{$menuson.showurl}" <eq name="cid" value="$menuson.id">class="Class"</eq>>{$menuson.cname}</a>
+    </gxfor>
+  </gxcms> -->
+  </div>
+  <div title="{$webname}" class="logo"></div>
+  <div class="query">
+    <span class="query_l"></span>
+    <div id="searchbar">
+      <div class="ui-search">
+        <form action="{$webpath}index.php?s=video/search" method="post" name="search" id="search" >
+          <input type="text" value="{$keyword|default='点我搜好看的电影哦！'}" class="search-input" name="wd" autocomplete="off" maxlength="35">
+          <input type="submit" id="searchbutton" class="search-button" value="">
+        </form>
+      </div>
+    </div>
+    <div class="hot_kw">
+      热门关键词：{$hotkey}
+    </div>
+    <span class="query_r"></span>
+  </div>
+  <div class="top"></div>
+  <!-- Baidu Button BEGIN -->
+  <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=2&amp;pos=left&amp;uid=3951895" ></script>
+  <script type="text/javascript" id="bdshell_js"></script>
+  <script type="text/javascript">
+    var bds_config = {
+      "bdTop" : 135
+    };
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000);
+  </script>
+  <!-- Baidu Button END -->
+</div>

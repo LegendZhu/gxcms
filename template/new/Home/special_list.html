@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$webtitle}</title>
+    <meta name="keywords" content="{$ckeywords}{$keywords}">
+    <meta name="description" content="{$cdescription}{$description}">
+    <include file="system" />
+    <link rel='stylesheet' type='text/css' href='{$tplpath}template.css'>
+  </head>
+  <body>
+    <div id="wrapper">
+      <include file="header" />
+      <div class="box">
+        <span>您现在所在的位置：</span>{$navtitle}
+      </div>
+      <div class="box">
+        <div class="left_col">
+          <!--热门电影排行 开始-->
+          <div class="topbrd"></div>
+          <div class="bd">
+            <div class="ct">
+              <div class="hd">
+                <h3>热门专题排行</h3>
+              </div>
+              <ul class="top">
+                <gxcms name="special" limit="50" order="hits desc">
+                  <li <gt name="i" value="10">class="b <if condition="$i eq 10">nobrd</if>"</gt>>
+                    <em>{$i}</em><a href="{$special.readurl}" title="{$special.title}">{$special.title|get_replace_html=0,12}</a><span>10-23</span>
+                  </li>
+                </gxcms>
+              </ul>
+            </div>
+          </div>
+          <div class="btmbrd"></div>
+        </div>
+        <div class="right_col">
+          <div class="special_box bd">
+            <span class="tl"></span><span class="tr"></span>
+            <div class="ct">
+              <div class="ct">
+                <div class="hd">
+                  <h3>影片检索：</h3>
+                </div>
+                <div class="mov_index">
+                  <if condition="(get_channel_son($cid) eq 0) or ($pid gt 0)">
+                    <dl>
+                      <dt>
+                        按类型
+                      </dt>
+                      <dd>
+                        <a href="/special/lists/cid/8.html" >动作片</a>
+                        <a href="/special/lists/cid/9.html" >喜剧片</a>
+                        <a href="/special/lists/cid/10.html" >爱情片</a>
+                        <a href="/special/lists/cid/11.html" >科幻片</a>
+                        <a href="/special/lists/cid/12.html" >剧情片</a>
+                        <a href="/special/lists/cid/13.html" >恐怖片</a>
+                        <a href="/special/lists/cid/14.html" >战争片</a>
+                        <!-- <gt name="pid" value="0">
+                        <gxcms name="menu" ids="'.$pid.'">
+                        <gxfor name="menu.son" id="menuson">
+                        <a href="{$menuson.showurl}" <eq name="cid" value="$menuson.id">class="Class"</eq>>{$menuson.cname}</a>
+                        </gxfor>
+                        </gxcms>
+                        <else />
+                        <gxcms name="menu" ids="'.$cid.'">
+                        <gxfor name="menu.son" id="menuson">
+                        <a href="{$menuson.showurl}" <eq name="cid" value="$menuson.id">class="Class"</eq>>{$menuson.cname}</a>
+                        </gxfor>
+                        </gxcms>
+                        </gt> -->
+                      </dd>
+                    </dl>
+                  </if>
+                </div>
+              </div>
+              <div class="hd">
+                <h3>全部专题列表<span>(共{$count}个)</span></h3>
+              </div>
+              <ul class="special_list">
+                <gxlist name="special" limit="21" order="addtime">
+                  <li <if condition="$i%3 eq 0">class="no"</if>>
+                    <a href="{$special.readurl}"><img src="{$special.logo}" alt="{$special.title}" title="{$special.title}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="175" height="104" /></a><a href="{$special.readurl}"><span style="color:red;font:14px;font-weight:bold;">{$special.title}</a></span>
+                  </li>
+                </gxlist>
+              </ul>
+              <if condition="$count gt 21">
+                <div class="pages">
+                  {$pages}
+                </div>
+              </if>
+            </div>
+            <span class="bl"></span><span class="br"></span>
+          </div>
+        </div>
+      </div>
+      <include file="footer" />
+    </div>
+  </body>
+</html>
