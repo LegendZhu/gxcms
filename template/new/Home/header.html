@@ -34,7 +34,7 @@
     <div id="searchbar">
       <div class="ui-search">
         <form action="{$webpath}index.php?s=video/search" method="post" name="search" id="search" >
-          <input type="text" value="{$keyword|default='点我搜好看的电影哦！'}" class="search-input" name="wd" autocomplete="off" maxlength="35">
+          <input type="text" value="{$keyword|default='点我搜好看的电影哦！'}" class="search-input" id="wd" name="wd" autocomplete="off" maxlength="35">
           <input type="submit" id="searchbutton" class="search-button" value="">
         </form>
       </div>
