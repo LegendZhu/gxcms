@@ -8,9 +8,9 @@ class CmsAction extends Action{
 
     public function _initialize(){
 		header("Content-Type:text/html; charset=".C('DEFAULT_CHARSET'));
-		Load('extend');	
+		Load('extend');
 		//import("@.TagLib.TagLibBdcms");//手工载入自定义标签库
-    }	
+    }
 	// 生成前台分类缓存
     public function create_channel(){
 		$rs = D("Admin.Channel");
@@ -44,7 +44,7 @@ class CmsAction extends Action{
 		$list = $rs->where($where)->order('oid asc')->select();
 		F('_gxcms/channelinfo',list_to_tree($list,'id','pid','son',0));
     }
-    
+
 	/*****************全站单个标签变量赋值******************************
 	* @返回赋值后的style数组,可在调用的类直接assign*/
     public function tags_style(){
@@ -53,7 +53,7 @@ class CmsAction extends Action{
 		$style['webname']  = C('web_name');
 		$style['weburl']   = C('web_url');
 		$style['webemail'] = C('web_email');
-		$style['webqq']    = C('web_qq');		
+		$style['webqq']    = C('web_qq');
 		$style['tplpath']  = C('web_path').'template/'.C('default_theme').'/';
 		$style['csspath']  = '<link rel="stylesheet" type="text/css" href="'.TEMPLATE_PATH.'/images/template.css" />'."\n";
 		$style['hotkey']   = get_hot_key(C('web_hotkey'));
@@ -79,9 +79,9 @@ class CmsAction extends Action{
 			$style['rssurl'] = get_show_url('map',array('id'=>'rss'),1);
 			$style['baidusitemap']  = str_replace(C('url_html_suffix'),'.xml',get_show_url('map',array('id'=>'baidu','limit'=>500),1));
 			$style['googlesitemap'] = str_replace(C('url_html_suffix'),'.xml',get_show_url('map',array('id'=>'google','limit'=>500),1));
-		}		
+		}
 		return $style;
-    }	
+    }
 	/*****************影视内容,播放页变量解析******************************
 	* @$array/具体的内容信息
 	* @$playarr 为解析播放页
@@ -119,14 +119,14 @@ class CmsAction extends Action{
 			}
 			$array['playname']  = $array['playlist'][$videoji]['playname'];
 			$array['playwidth'] = C('player_width');
-			$array['playheight']= C('player_height');			
+			$array['playheight']= C('player_height');
 			$array['webtitle']  = '正在播放 '.$array['title'].' '.$array['playname'].' '.C('web_name');
 			$array['player']    = $player;
 			//显示点击数
 			$array['hits']      = get_tag_hits('video','hits',$array,C('url_html_play'));
 			$array['monthhits'] = get_tag_hits('video','monthhits',$array,C('url_html_play'));
 			$array['weekhits']  = get_tag_hits('video','weekhits',$array,C('url_html_play'));
-			$array['dayhits']   = get_tag_hits('video','dayhits',$array,C('url_html_play'));			
+			$array['dayhits']   = get_tag_hits('video','dayhits',$array,C('url_html_play'));
 		}else{
 			$array['webtitle']  = $array['title'].'-'.C('web_name');
 			//显示点击数
@@ -162,7 +162,7 @@ class CmsAction extends Action{
 	    return $urllist;
 	}
 	/*****************资讯内容变量解析******************************
-	* @$array/具体的内容信息	
+	* @$array/具体的内容信息
 	* @返回赋值后的arrays 多维数组*/
 	public function tags_info_read($array){
 		$channel = list_search(F('_gxcms/channel'),'id='.$array['cid']);
@@ -173,18 +173,18 @@ class CmsAction extends Action{
 		$array['monthhits']   = get_tag_hits('info','monthhits',$array);
 		$array['weekhits']    = get_tag_hits('info','weekhits',$array);
 		$array['dayhits']     = get_tag_hits('info','dayhits',$array);
-		$array['inserthits']  = get_tag_hits('info','insert',$array);			
+		$array['inserthits']  = get_tag_hits('info','insert',$array);
 		$array['navtitle']    = '<a href="'.C('web_path').'">首页</a> &gt; ';
 		if($channel[0]['pid']){
 			$array['navtitle'] .= '<a href="'.$channel[0]['showurl_p'].'">'.$channel[0]['cname_p'].'</a> &gt; ';
 		}
-		$array['navtitle'] .= '<a href="'.$channel[0]['showurl'].'">'.$channel[0]['cname'].'</a> &gt; <span>正文</span>';					
+		$array['navtitle'] .= '<a href="'.$channel[0]['showurl'].'">'.$channel[0]['cname'].'</a> &gt; <span>正文</span>';
 		$arrays['show']     = $channel[0];
 		$arrays['read']     = $array;
 		return $arrays;
 	}
 	/*****************专题内容变量解析******************************
-	* @$array/具体的内容信息	
+	* @$array/具体的内容信息
 	* @返回赋值后的arrays 多维数组*/
 	public function tags_special_read($array){
 		$array['logo']      = get_img_url($array['logo']);
@@ -195,7 +195,7 @@ class CmsAction extends Action{
 		$array['monthhits'] = get_tag_hits('special','monthhits',$array);
 		$array['weekhits']  = get_tag_hits('special','weekhits',$array);
 		$array['dayhits']   = get_tag_hits('special','dayhits',$array);
-		$array['inserthits']= get_tag_hits('special','insert',$array);	
+		$array['inserthits']= get_tag_hits('special','insert',$array);
 		return $array;
 	}
 }

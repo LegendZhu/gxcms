@@ -158,11 +158,21 @@ class VideoAction extends HomeAction {
     $where['status'] = array('eq', 1);
     $rs = M("Video");
     $array = $rs->where($where)->find();
+    // $length = 75;
+    $keywords = $array['title'] . ',' . $array['title'] . '全集,' .$array['title'] . '高清,' .  $array['title'] . '在线播放,'.  $array['title'] . '最新更新,高清在线观看';
+    //截取？
+    // echo mb_strlen($array['content']);
+    // if(mb_strlen($array['content']) >= $length){
+      // $array['content'] = mb_substr($array['content'], 0 , $length, 'utf-8');
+    // }
+    $description = $array['title'] . ',' . $array['content'];
     if($array) {
       $array = $this->tags_video_read($array);
       //变量赋值
       $this->assign($array['show']);
       $this->assign($array['read']);
+      $this->assign('keywords', $keywords);
+      $this->assign('description', $description);
       $this->display('video_detail');
     } else {
       $this->assign("jumpUrl", C('web_path'));
@@ -176,12 +186,16 @@ class VideoAction extends HomeAction {
     $where['status'] = array('eq', 1);
     $rs = M("Video");
     $array = $rs->where($where)->find();
+    $keywords = $array['title'] . ',' . $array['title'] . '全集,' .$array['title'] . '高清,' .  $array['title'] . '在线播放,'.  $array['title'] . '最新更新,高清在线观看';
+    $description = $array['title'] . ',' . $array['content'];
     $playarr = explode('-', $where['id']);
     //ID与集数分隔
     if($array) {
       $array = $this->tags_video_read($array, $playarr);
       $this->assign($array['show']);
       $this->assign($array['read']);
+      $this->assign('keywords', $keywords);
+      $this->assign('description', $description);
       $this->display('video_play');
     } else {
       $this->assign("jumpUrl", C('web_path'));
