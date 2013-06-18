@@ -198,5 +198,37 @@ class CmsAction extends Action{
 		$array['inserthits']= get_tag_hits('special','insert',$array);
 		return $array;
 	}
+
+  /**
+   * Removes specific tags.
+   * 移除指定标签
+   * $stripContent为 TRUE时删除标签内内容
+   */
+  function strip_only_tags($str, $tags, $stripContent = FALSE) {
+    $content = '';
+    if(!is_array($tags)) {
+      $tags = (strpos($str, '>') !== false ? explode('>', str_replace('<', '', $tags)) : array($tags));
+      if(end($tags) == '') {
+        array_pop($tags);
+      }
+    }
+      print_r($tags);
+    foreach ($tags as $tag) {
+      if($stripContent) {
+        $content = '(.+<!--' . $tag . '(-->|\s[^>]*>)|)';
+      }
+      $str = preg_replace('#<!--?' . $tag . '(-->|\s[^>]*>)' . $content . '#is', '', $str);
+    }
+    return $str;
+  }
+
+  function strip_some_tags($str, $tags_a){
+    foreach ($tags_a as $tag) {
+      $p[]="/(<(?:\/".$tag."|".$tag.")[^>]*>)/i";
+    }
+    $return_str = preg_replace($p,"",$str);
+    return $return_str;
+  }
+
 }
 ?>

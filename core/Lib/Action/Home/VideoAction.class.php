@@ -165,6 +165,8 @@ class VideoAction extends HomeAction {
     // if(mb_strlen($array['content']) >= $length){
     // $array['content'] = mb_substr($array['content'], 0 , $length, 'utf-8');
     // }
+    // $array['content'] = $this->strip_only_tags($array['content'], array('<a>','<div>'));//有问题
+    $array['content'] = $this->strip_some_tags($array['content'], array('a'));//去除指定的html标签
     $description = strip_tags($array['title'] . ',' . $array['content']);
     if($array) {
       $array = $this->tags_video_read($array);
